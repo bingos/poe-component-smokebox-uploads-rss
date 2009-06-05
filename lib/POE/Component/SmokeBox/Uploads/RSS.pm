@@ -8,7 +8,7 @@ use HTTP::Request;
 use HTML::LinkExtor;
 use vars qw($VERSION);
 
-$VERSION = '0.04';
+$VERSION = '1.00';
 
 sub spawn {
   my $package = shift;
@@ -149,7 +149,8 @@ sub _dispatch {
   return;
 }
 
-1;
+"This town ain't big enough for the both of us";
+
 __END__
 
 =head1 NAME
@@ -195,7 +196,7 @@ L<POE::Component::RSSAggregator> is used to handle the RSS feed monitoring and L
 
 =over
 
-=item spawn
+=item C<spawn>
 
 Takes a number of parameters:
 
@@ -213,11 +214,11 @@ Returns an object.
 
 =over 
 
-=item session_id
+=item C<session_id>
 
 Returns the POE::Session ID of the component.
 
-=item shutdown
+=item C<shutdown>
 
 Terminates the component.
 
@@ -227,7 +228,7 @@ Terminates the component.
 
 =over 
 
-=item shutdown
+=item C<shutdown>
 
 Terminates the component.
 
@@ -248,7 +249,7 @@ Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
 
 =head1 LICENSE
 
-Copyright (C) Chris Williams
+Copyright E<copy> Chris Williams
 
 This module may be used, modified, and distributed under the same terms as Perl itself. Please see the license that came with your Perl distribution for details.
 
@@ -262,3 +263,4 @@ L<POE::Component::Client::HTTP>
 
 L<http://search.cpan.org/uploads.rdf>
 
+=cut

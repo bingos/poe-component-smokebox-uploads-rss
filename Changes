@@ -1,6 +1,9 @@
 Changelog for POE::Component::SmokeBox::Uploads::RSS
 ====================================================
 
+1.00	Fri Jun  5 13:11:20 BST 2009
+	- Makefile.PL meta updates
+
 0.04	Tue Jun 24 13:30:02 BST 2008
 	- Added LICENSE information.
 
