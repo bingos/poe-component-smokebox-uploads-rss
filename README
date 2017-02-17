@@ -39,7 +39,7 @@ DESCRIPTION
     each new upload.
 
 CONSTRUCTOR
-    spawn
+    "spawn"
         Takes a number of parameters:
 
           'event', the event handler in your session where each new upload alert should be sent, mandatory;
@@ -52,14 +52,14 @@ CONSTRUCTOR
         Returns an object.
 
 METHODS
-    session_id
+    "session_id"
         Returns the POE::Session ID of the component.
 
-    shutdown
+    "shutdown"
         Terminates the component.
 
 INPUT EVENTS
-    shutdown
+    "shutdown"
         Terminates the component.
 
 OUTPUT EVENTS
@@ -74,7 +74,7 @@ AUTHOR
     Chris "BinGOs" Williams <chris@bingosnet.co.uk>
 
 LICENSE
-    Copyright (C) Chris Williams
+    Copyright © Chris Williams
 
     This module may be used, modified, and distributed under the same terms
     as Perl itself. Please see the license that came with your Perl
