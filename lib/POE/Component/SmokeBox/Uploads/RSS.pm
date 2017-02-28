@@ -1,14 +1,13 @@
 package POE::Component::SmokeBox::Uploads::RSS;
 
+#ABSTRACT: Obtain uploaded CPAN modules via RSS.
+
 use strict;
 use warnings;
 use Carp;
 use POE qw(Component::RSSAggregator Component::Client::HTTP);
 use HTTP::Request;
 use HTML::LinkExtor;
-use vars qw($VERSION);
-
-$VERSION = '1.02';
 
 sub spawn {
   my $package = shift;
@@ -52,9 +51,9 @@ sub _shutdown {
 sub _real_shutdown {
   my ($kernel,$self) = @_[KERNEL,OBJECT];
   $kernel->alias_remove( $_ ) for $kernel->alias_list();
-  $kernel->refcount_decrement( $self->{session_id}, __PACKAGE__ ) unless $self->{alias};  
+  $kernel->refcount_decrement( $self->{session_id}, __PACKAGE__ ) unless $self->{alias};
   $kernel->refcount_decrement( $self->{sender_id}, __PACKAGE__ );
-  $kernel->post( $self->{http_id}, 'shutdown' ) unless $self->{http_alias}; 
+  $kernel->post( $self->{http_id}, 'shutdown' ) unless $self->{http_alias};
   $kernel->post( $self->{rssagg}, 'shutdown' );
   return;
 }
@@ -151,11 +150,7 @@ sub _dispatch {
 
 "This town ain't big enough for the both of us";
 
-__END__
-
-=head1 NAME
-
-POE::Component::SmokeBox::Uploads::RSS - Obtain uploaded CPAN modules via RSS.
+=pod
 
 =head1 SYNOPSIS
 
@@ -202,7 +197,7 @@ Takes a number of parameters:
 
   'event', the event handler in your session where each new upload alert should be sent, mandatory;
   'session', optional if the poco is spawned from within another session;
-  
+
 The 'session' parameter is only required if you wish the output event to go to a different
 session than the calling session, or if you have spawned the poco outside of a session.
 
@@ -236,22 +231,12 @@ Terminates the component.
 
 =head1 OUTPUT EVENTS
 
-An event will be triggered for each new CPAN upload. The event will have ARG0 set to the path of the 
+An event will be triggered for each new CPAN upload. The event will have ARG0 set to the path of the
 upload:
 
   B/BI/BINGOS/POE-Component-SmokeBox-Uploads-RSS-0.01.tar.gz
 
 Suitable for feeding to the smoke tester of your choice.
-
-=head1 AUTHOR
-
-Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
-
-=head1 LICENSE
-
-Copyright E<copy> Chris Williams
-
-This module may be used, modified, and distributed under the same terms as Perl itself. Please see the license that came with your Perl distribution for details.
 
 =head1 SEE ALSO
 
